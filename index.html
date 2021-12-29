@@ -7,11 +7,19 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
     <title>FF14 | 톤베리 청춘예찬《열화》</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
-    <!-- Bootstrap core CSS -->
+    <link rel="shortcut icon" type="image/x-icon" href="./images/flame_icon.png">
+    <!-- Bootstrap core CSS & Icon -->
     <link href="./bootstrap-5.1.3-dist/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <!-- JQuery -->
+    <script src="jquery.js"></script>
+    <!-- Custom Style -->
     <style>
+      /* Mouse Cursor */
+      html, body { cursor: url('./images/Select.cur'), auto;} 
+      a:hover {cursor: url('./images/Link.cur'), auto;}
+      .button:hover {cursor: url('./images/Link.cur'), auto;}
+
 
       /* Web-Font */
       /* 산돌떡볶이체 */
@@ -37,7 +45,6 @@
           font-weight: normal;
           font-style: normal;
       }
-      /* Web-Font */
 
 
 
@@ -121,7 +128,78 @@
           fill: transparent;
         }
       }
-      /* Logo Animation */
+
+       .loader {
+        width: 50%;
+        height: 50%;
+        top:  0px;
+        left: 0px;
+        position: absolute;
+        display: block;
+        z-index: -999;
+        text-align: center;
+        display: block;
+       }
+
+       .loading-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -999;
+        display: block;
+       }
+
+       .loaded-container {
+        display: none;
+       }
+
+       .loading-image-cover {
+        background-color:rgba(0, 0, 0, 0.7);
+        width: 100%;
+        height: 100%;
+        top:  0px;
+        left: 0px;
+        z-index: -998;
+        position: absolute;
+        display: none;
+       }
+
+
+
+      /* 부대혜택 Animation  */
+       .div-background-mono {
+        background-blend-mode: difference;
+        transform: scale(0);
+        z-index: 999;
+        transition: all 1.0s;
+       }
+
+       .div-background-mono:hover {
+        background-blend-mode: multiply;
+        border: 1px solid white;
+        z-index: 999;
+       }
+
+       @keyframes scale1 {
+        0%   { transform: scale(0) }
+        100%  { transform: scale(1) }
+       }
+
+
+       /* Custom Design */
+       .text-content {
+        font-size: 1.25rem;
+       }
+
+       .text-heading {
+        font-weight: bolder;
+       }
+
+       .font-intro {
+        font-family: 'Manse';
+        color: white;
+        opacity: 0;
+       }
 
       .font-title {
         font-family: 'SDKukdetopokki-Lt';
@@ -165,62 +243,48 @@
         border: 10px solid #f6aa1c;
        }
 
-       .loader {
-        width: 50%;
-        height: 50%;
-        top:  0px;
-        left: 0px;
-        position: absolute;
-        display: block;
-        z-index: -999;
-        text-align: center;
-        display: block;
-       }
-
-       .loading-image {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        z-index: -999;
-        display: block;
-       }
-
-       .loaded-container {
-        display: none;
-       }
-
-       .text-content {
-        font-size: 1.25rem;
-       }
-
-       .text-heading {
-        font-weight: bolder;
-       }
-
-       .font-intro {
-        font-family: 'Manse';
+       #backtotop:hover {
         color: white;
-        display: none;
        }
 
-       .loading-image-cover {
-        background-color:rgba(0, 0, 0, 0.7);
-        width: 100%;
-        height: 100%;
-        top:  0px;
-        left: 0px;
-        z-index: -998;
-        position: absolute;
-        display: none;
-       }
-
-       .div-background {
-        background-blend-mode: luminosity;
-       }
+      .navbar-dark .navbar-brand {
+        color: #F6AA1C;
+      }
+      .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
+        color: #F6AA1C;
+      }
+      .navbar-dark .navbar-nav .nav-link {
+        color: rgba(246, 170, 28, 0.55);
+      }
+      .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+        color: rgba(246, 170, 28, 0.75);
+      }
+      .navbar-dark .navbar-nav .nav-link.disabled {
+        color: rgba(246, 170, 28, 0.25);
+      }
+      .navbar-dark .navbar-nav .show > .nav-link,
+      .navbar-dark .navbar-nav .nav-link.active {
+        color: #F6AA1C;
+      }
+      .navbar-dark .navbar-toggler {
+        color: rgba(246, 170, 28, 0.55);
+        border-color: rgba(246, 170, 28, 0.1);
+      }
+      .navbar-dark .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28246, 170, 28, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+      .navbar-dark .navbar-text {
+        color: rgba(246, 170, 28, 0.55);
+      }
+      .navbar-dark .navbar-text a,
+      .navbar-dark .navbar-text a:hover,
+      .navbar-dark .navbar-text a:focus {
+        color: #F6AA1C;
+      }
 
     </style>
-    <script src="jquery.js"></script>
     <script type="text/javascript">
+      /* 첫 화면 로딩 */
       $(window).on('load', function () {
         $(".loader").delay("1000").fadeOut();
         $(".loading-image").delay("1500").fadeOut();
@@ -228,11 +292,37 @@
         $(".loader").delay("1000").fadeIn();
         $(".loading-image").delay("1500").fadeIn();
         $(".loading-image-cover").delay("1500").fadeIn();
-        $(".font-intro").delay("5000").fadeIn();
+
+        /* 헤더 메시지 애니메이션  */
+        $(".font-intro").animate({
+          opacity: 1
+        },
+        12000,
+        function() {
+          $(this).css("opacity", "1");
+        });
       });
 
-      $("#target").mouseover( function(){ 
-        alert("test");
+      /* 부대 혜택 애니메이션 */
+      var a = true;
+      $(window).scroll(function() {
+         var hT = $('#부대혜택').offset().top,
+             hH = $('#부대혜택').outerHeight(),
+             wH = $(window).height(),
+             wS = $(this).scrollTop();
+
+             if(a == true) {
+               if (wS > (hT+hH-wH+300)){
+                   a = false;
+                  $(".div-background-mono").animate({
+                    opacity: 1
+                  },
+                  1000,
+                  function() {
+                    $(this).css("animation", "scale1 2s ease forwards");
+                  });
+               }
+             }
       });
 
       /* Clipboard Copy */
@@ -246,7 +336,6 @@
       }
       function copy(val) {
         copyToClipboard("/귓 " + val + "@톤베리 안녕하세요? 부대 가입 문의드립니다.");
-        alert('FF14 채팅창에 붙여넣기 후 귓속말 보내주세요!');
       }
       /* Clipboard Copy */
 
@@ -316,7 +405,7 @@
       <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-color-dark font-title" id="navbar">
           <div class="container-fluid">
-            <a class="navbar-brand font-color-highlight" href="#">《열화》</a>
+            <a class="navbar-brand font-color-highlight" style="color:#F6AA1C;" href="#">《열화》</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -365,7 +454,7 @@
         <!-- Logo Animation -->
         <div class="container outter intro">
           <div class="inner">
-            <h1 class="font-intro">"2022년 함께할 새로운 부대원을 모집합니다!"</h1>
+            <h1 class="font-intro">2022년 함께할 신규 부대원을 모집합니다!</h1>
           </div>
         </div>
 
@@ -374,8 +463,8 @@
           <h2 class="pb-2 font-color-highlight text-heading font-title" id="부대혜택"><i class="bi bi-gift-fill"></i>&nbsp;부대 혜택</h2>
           <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
             <div class="col">
-              <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg benifit-images div-background" style="background-image: url('./images/대형하우징.png');">
-                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+              <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg benifit-images div-background-mono hover-highlight" style="background-image: url('./images/대형하우징.png');">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 hover-highlight">
                   <ul class="d-flex list-unstyled mt-auto">
                     <li class="me-auto">
                       <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-bank2" viewBox="0 0 16 16">
@@ -410,7 +499,7 @@
             </div>
 
             <div class="col">
-              <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg benifit-images div-background" style="background-image: url('./images/부대버프.png');">
+              <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg benifit-images div-background-mono" style="background-image: url('./images/부대버프.png');">
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                   <ul class="d-flex list-unstyled mt-auto">
                     <li class="me-auto">
@@ -446,7 +535,7 @@
             </div>
 
             <div class="col">
-              <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg benifit-images div-background" style="background-image: url('./images/개인실지원.png');">
+              <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg benifit-images div-background-mono" style="background-image: url('./images/개인실지원.png');">
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                   <ul class="d-flex list-unstyled mt-auto">
                     <li class="me-auto">
@@ -493,7 +582,7 @@
             <div class="col-md-7">
               <h2 class="font-color-highlight text-heading font-title"><i class="bi bi-megaphone-fill"></i>&nbsp;청춘예찬《열화》 소개</h2>
               <p class="text-white text-content">
-                <i class="bi bi-check"></i> 지인들과 오순도순 게임하는 화목한 분위기의 <b class="font-color-highlight">《열화》</b> 부대입니다.<br>
+                <i class="bi bi-check"></i> <b class="font-color-highlight">톤베리서버</b>에서 지인들과 오순도순 게임하는 화목한 분위기의 <b class="font-color-highlight">《열화》</b> 부대입니다.<br>
                 <i class="bi bi-check"></i> 파티, 채집/제작, 보물지도, 고대무기 등 다양한 게임 내 <b class="font-color-highlight">컨텐츠를 함께 즐겨요.</b><br>
                 <i class="bi bi-check"></i> <b class="font-color-highlight">성별 및 연령 제한 없으나</b> 현재 20대, 30대 부대원이 많아요.<br>
                 <i class="bi bi-check"></i> 게임 내 컨텐츠 관련 질문에 답해줄 <b class="font-color-highlight">멘토</b>님들 상시 대기중이에요.<br>
@@ -504,7 +593,7 @@
               </p>
             </div>
             <div class="col-md-5">
-              <svg  id="animate" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+              <img src="./images/부대소개.png" width="100%" height="100%"> 
             </div>
           </div>
 
@@ -522,8 +611,7 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
+                <img src="./images/Screenshot1.png" width="100%" height="100%">
                 <div class="container">
                   <div class="carousel-caption text-start">
                     <h1>Screenshot #1</h1>
@@ -533,8 +621,7 @@
               </div>
 
               <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
+                <img src="./images/Screenshot2.png" width="100%" height="100%">
                 <div class="container">
                   <div class="carousel-caption">
                     <h1>Screenshot #2</h1>
@@ -544,8 +631,7 @@
               </div>
 
               <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
+                <img src="./images/Screenshot3.png" width="100%" height="100%">
                 <div class="container">
                   <div class="carousel-caption text-end">
                     <h1>Screenshot #3</h1>
@@ -555,8 +641,7 @@
               </div>
 
               <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
+                <img src="./images/Screenshot4.png" width="100%" height="100%">
                 <div class="container">
                   <div class="carousel-caption text-start">
                     <h1>Screenshot #4</h1>
@@ -566,8 +651,7 @@
               </div>
 
               <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
+                <img src="./images/Screenshot5.png" width="100%" height="100%">
                 <div class="container">
                   <div class="carousel-caption text-end">
                     <h1>Screenshot #5</h1>
@@ -593,7 +677,7 @@
             <div class="col-md-7 order-md-2">
               <h2 class="font-color-highlight text-heading font-title"><i class="bi bi-emoji-wink-fill"></i>&nbsp;모집 대상</h2>
               <p class="text-white text-content">
-                <i class="bi bi-check"></i> 새싹, 복귀싹, 고인물 유저 모두 환영!<br>
+                <i class="bi bi-check"></i> <b class="font-color-highlight">새싹, 복귀싹, 고인물</b> 모두 환영!<br>
                 <i class="bi bi-check"></i> 소통이 원활하고 인사를 잘 하시는 분♥<br>
                 <i class="bi bi-check"></i> 사사게 스타 유저 X<br>
                 <i class="bi bi-check"></i> 특정 사상 지지 or 특정 커뮤니티 유저 X<br>
@@ -608,7 +692,7 @@
               </p>
             </div>
             <div class="col-md-5 order-md-1">
-              <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+              <img src="./images/모집대상.png" width="100%" height="100%"> 
             </div>
           </div>
           <!-- 부대소개 & 모집 대상  -->
@@ -619,39 +703,55 @@
           <div class="row" id="가입문의">
             <h2 class="font-color-highlight text-heading font-title"><i class="bi bi-signal"></i>&nbsp;가입문의</h2>
             <p class="text-white text-content">
-              이름 옆 <b class="font-color-highlight">[Copy] 버튼</b> 클릭 후 파이널판타지14 채팅창에 붙여넣기+Enter 해주세요.
+              이름 옆 <b class="font-color-highlight">[COPY] 버튼</b> 클릭 후 파이널판타지14 채팅창에 <b class="font-color-highlight">붙여넣기+Enter</b> 해주세요.
               <br><i>※ 부재시 <b class="font-color-highlight">시로가네 13구 7번지</b> 부대집으로 오셔서 가입신청 주세요!</i></p>
           </div>
 
           <div class="row outter">
             <div class="col-lg-3 col-md-6">
-              <img class="rounded-circle margin-top-bottom-20 image-border" src="./images/머당님.jpg"/ width="200px" height="200px">
-              <h5 class="font-color-normal text-heading">제레타@톤베리&nbsp;<a class="btn btn-outline-warning btn-sm" onclick="copy('제레타');">Copy</a></h5>
+              <img class="rounded-circle margin-top-bottom-20 image-border" src="./images/제레타.png"/ width="200px" height="200px">
+              <h5 class="font-color-normal text-heading">제레타@톤베리&nbsp;<a class="btn btn-outline-warning btn-sm" onclick="copy('제레타');" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <b class="text-heading font-title">COPY</b></a></h5>
               <p></p>
             </div><!-- /.col-lg-3 -->
 
             <div class="col-lg-3 col-md-6">
-              <img class="rounded-circle margin-top-bottom-20 image-border" src="./images/롤라님.png"/ width="200px" height="200px">
-              <h5 class="font-color-normal text-heading">오롤라@톤베리&nbsp;<a class="btn btn-outline-warning btn-sm" onclick="copy('오롤라')">Copy</a></h5>
+              <img class="rounded-circle margin-top-bottom-20 image-border" src="./images/오롤라.png"/ width="200px" height="200px">
+              <h5 class="font-color-normal text-heading">오롤라@톤베리&nbsp;<a class="btn btn-outline-warning btn-sm" onclick="copy('오롤라')" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <b class="text-heading font-title">COPY</b></a></h5>
               <p></p>
             </div><!-- /.col-lg-3 -->
 
             <div class="col-lg-3 col-md-6">
-              <img class="rounded-circle margin-top-bottom-20 image-border" src="./images/사로님.png"/ width="200px" height="200px">
-              <h5 class="font-color-normal text-heading">사로네@톤베리&nbsp;<a class="btn btn-outline-warning btn-sm" onclick="copy('사로네')">Copy</a></h5>
+              <img class="rounded-circle margin-top-bottom-20 image-border" src="./images/사로네.png"/ width="200px" height="200px">
+              <h5 class="font-color-normal text-heading">사로네@톤베리&nbsp;<a class="btn btn-outline-warning btn-sm" onclick="copy('사로네')" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <b class="text-heading font-title">COPY</b></a></h5>
               <p></p>
             </div><!-- /.col-lg-3 -->
 
             <div class="col-lg-3 col-md-6">
               <img class="rounded-circle margin-top-bottom-20 image-border" src="./images/혁삼.png"/ width="200px" height="200px">
-              <h5 class="font-color-normal text-heading">혁삼@톤베리&nbsp;<a class="btn btn-outline-warning btn-sm" onclick="copy('혁삼')">Copy</a></h5>
+              <h5 class="font-color-normal text-heading">혁삼@톤베리&nbsp;<a class="btn btn-outline-warning btn-sm" onclick="copy('혁삼')" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <b class="text-heading font-title">COPY</b></a></h5>
               <p></p>
             </div>
           </div>
           <!-- /END 가입문의 -->
 
         </div><!-- /.container -->
-
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-color-dark" style="border: 1px solid #f6aa1c;">
+              <div class="modal-body" style="padding-bottom: 0px;">
+                <p class="text-white font-normal">귓속말 클립보드 복사 완료!<br> 파이널판타지14 채팅창에 붙여넣기 후 Enter 눌러주세요.</p>
+              </div>
+              <div class="modal-footer" style="border-top-color: black; padding-top: 0px;">
+                <button type="button" class="btn btn-sm btn-warning button" data-bs-dismiss="modal"><b class="text-heading font-title">CLOSE</b></button>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- FOOTER -->
         <footer class="container font-color-highlight">
           <p class="float-end">
