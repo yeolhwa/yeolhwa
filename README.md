@@ -2,4 +2,4 @@
 Made By. 민시온@톤베리
 
 
-<div style="text-align: center;"><span style="font-size: 15px;"><b><font face="돋움">아래 이미지 클릭시 부대원 모집글로 이동합니다!</font></b></span></div><div style="text-align: center;"><span style="font-size: 15px;"><br></span></div><div style="text-align: center;"><span style="font-size: 15px;">﻿</span><a href="https://yeolhwa.github.io/" style="font-size: 15px;"><img src="https://yeolhwa.github.io/images/banner.png" sqeid="QE_164085128402245271" style="border-color: rgb(0, 0, 0);"></a><span style="font-size: 15px;">﻿</span></div>
+<div style="text-align: center;"><span style="font-size: 15px;"><b><font face="돋움">아래 이미지 클릭시 부대원 모집글로 이동합니다!</font></b></span></div><div style="text-align: center;"><span style="font-size: 15px;"><br></span></div><div style="text-align: center;"><span style="font-size: 15px;">﻿</span><a href="https://yeolhwa.github.io/" style="font-size: 15px;" target='_blank'><img src="https://yeolhwa.github.io/images/banner.png" sqeid="QE_164085128402245271" style="border-color: rgb(0, 0, 0);"></a><span style="font-size: 15px;"></span></div>
