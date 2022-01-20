@@ -1,0 +1,955 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>FF14 톤베리 청춘예찬《열화》</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poor+Story" rel="stylesheet">
+    <!-- Bootstrap core CSS & Icon -->
+    <link href="../bootstrap-5.1.3-dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+<!-- jQuery 1.8 or later, 33 KB -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Fotorama from CDNJS, 19 KB -->
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    <!-- Custom Style -->
+    <style>
+      /* Mouse Cursor */
+      html, body { cursor: url('./images/Select.cur'), auto;} 
+      a:hover {cursor: url('./images/Link.cur'), auto;}
+      .button:hover {cursor: url('./images/Link.cur'), auto;}
+
+      /* Rix네온Regular */
+      @font-face {
+          font-family: 'RixNeonSign';
+          src: url('./font/RixNeonSign.ttf');
+          font-weight: normal;
+          font-style: normal;
+          font-display: block;
+      }
+
+      /* 영문 Neon */
+      @font-face {
+          font-family: neon;
+          src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+          font-display: block;
+      }
+
+      /* LAB디지털 */ 
+      @font-face {
+          font-family: 'LAB디지털';
+          src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/LAB디지털.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+          font-display: block;
+      }
+
+      /* 카페서라운드에어 */
+      @font-face {
+          font-family: 'Cafe24SsurroundAir';
+          src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+          font-display: block;
+      }
+
+      /* 둥근모꼴+ Fixedsys */
+      @font-face {
+           font-family: 'DungGeunMo';
+           src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+           font-weight: normal;
+           font-style: normal;
+      }
+
+      .container {
+        vertical-align: middle;
+      }
+      .sub-title {
+        font-family: neon;
+        color: #FFFFFF;
+        font-size: 7rem;
+        line-height: 8rem;
+        text-shadow: 0 0 2rem #FFFFFF;
+      }
+      .neon {
+        font-family: RixNeonSign;
+        color: #FB4264;
+        font-size: 7rem;
+        line-height: 8rem;
+        text-shadow: 0 0 2rem #F40A35;
+      }
+
+      .flux {
+        font-family: RixNeonSign;
+        color: #426DFB;
+        font-size: 7rem;
+        line-height: 8rem;
+        text-shadow: 0 0 2rem #2356FF;
+      }
+
+      .neon {
+        animation: neon 1s ease infinite;
+        -moz-animation: neon 2s ease infinite;
+        -webkit-animation: neon 2s ease infinite;
+      }
+
+      @keyframes neon {
+        0%,
+        100% {
+          text-shadow: 0 0 1rem #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5rem .5rem .1rem #806914;
+          color: #FED128;
+        }
+        50% {
+          text-shadow: 0 0 .5rem #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5rem .5rem .1rem #40340A;
+          color: #806914;
+        }
+      }
+
+      .flux {
+        animation: flux 2s linear infinite;
+        -moz-animation: flux 2s linear infinite;
+        -webkit-animation: flux 2s linear infinite;
+        -o-animation: flux 2s linear infinite;
+      }
+
+      @keyframes flux {
+        0%,
+        100% {
+          text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+          color: #28D7FE;
+        }
+        50% {
+          text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+          color: #146C80;
+        }
+      }
+
+      :root {
+        /* Set neon color */
+        --neon-text-color: #666;
+        --neon-text-color2: #FF008D;
+        --neon-text-color3: #28D7FE;
+      }
+
+      .open {
+        font-size: 5rem;
+        font-weight: 200;
+        color: #fff;
+        padding-right: 10px;
+        width: 100%;
+        border-radius: 2rem;
+        text-transform: uppercase;
+        animation: flicker 1.5s infinite alternate;     
+      }
+
+      /* Animate neon flicker */
+      @keyframes flicker {
+          
+          0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+            
+              text-shadow:
+                  -0.2rem -0.2rem 1rem #fff,
+                  0.2rem 0.2rem 1rem #fff,
+                  0 0 2rem var(--neon-text-color),
+                  0 0 4rem var(--neon-text-color),
+                  0 0 6rem var(--neon-text-color),
+                  0 0 8rem var(--neon-text-color),
+                  0 0 10rem var(--neon-text-color);   
+          }
+          
+          20%, 24%, 55% {        
+              text-shadow: none;
+              box-shadow: none;
+          }    
+      }
+
+      .neon-title1 {
+        font-size: 2rem;
+        color: #ff7dc5;
+        width: 100%;
+        text-transform: uppercase;
+        animation: flicker2 1.5s infinite alternate;     
+      }
+
+      /* Animate neon flicker */
+      @keyframes flicker2 {
+          
+          0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+            
+              text-shadow:
+                  -0.1rem -0.1rem 0.3rem #4c1130,
+                  0.1rem 0.1rem 0.3rem #4c1130,
+                  0 0 1rem var(--neon-text-color2),
+                  0 0 2rem var(--neon-text-color2),
+                  0 0 3rem var(--neon-text-color2),
+                  0 0 4rem var(--neon-text-color2),
+                  0 0 5rem var(--neon-text-color2);    
+          }
+          
+          20%, 24%, 55% {        
+              text-shadow: none;
+              box-shadow: none;
+          }    
+      }
+
+      .neon-title2 {
+        font-size: 2rem;
+        color: #7de8ff;
+        width: 100%;
+        text-transform: uppercase;
+        animation: flicker3 1.5s infinite alternate;     
+      }
+
+      /* Animate neon flicker */
+      @keyframes flicker3 {
+          
+          0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+            
+              text-shadow:
+                  -0.1rem -0.1rem 0.3rem #11444c,
+                  0.1rem 0.1rem 0.3rem #11444c,
+                  0 0 1rem var(--neon-text-color3),
+                  0 0 2rem var(--neon-text-color3),
+                  0 0 3rem var(--neon-text-color3),
+                  0 0 4rem var(--neon-text-color3),
+                  0 0 5rem var(--neon-text-color3);    
+          }
+          
+          20%, 24%, 55% {        
+              text-shadow: none;
+              box-shadow: none;
+          }    
+      }
+
+      /* Logo Animation */
+      #logo {
+        margin-top: 30px;
+        margin-bottom: 0px;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+      }
+
+      #logo,
+      #path-1-outside-1 {
+        animation: fill-out 5s ease-out forwards 3s;
+      }
+
+      @keyframes fill-out {
+        from {
+          fill: transparent;
+        }
+        to {
+          fill: transparent;
+        }
+      }
+
+       .loader {
+        width: 50%;
+        height: 50%;
+        top:  0px;
+        left: 0px;
+        position: absolute;
+        display: block;
+        z-index: -999;
+        text-align: center;
+        display: block;
+       }
+
+       .loading-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -999;
+        display: block;
+       }
+
+       .loaded-container {
+        display: none;
+       }
+
+       .loading-image-cover {
+        width: 100%;
+        height: 100%;
+        top:  0px;
+        left: 0px;
+        z-index: -998;
+        position: absolute;
+        background-image: url('./images/background.png');
+        background-color: #000516;
+        background-blend-mode: color-dodge;
+        opacity: 0.35;
+       }
+
+      /* 부대혜택 Animation  */
+       .div-background-mono {
+        background-blend-mode: luminosity;
+        transform: scale(0);
+        z-index: 999;
+        transition: all 1.0s;
+       }
+
+       .div-background-mono:hover {
+        background-blend-mode: difference;
+        border: 1px solid #fff;
+        z-index: 999;
+       }
+
+       @keyframes scale1 {
+        0%   { transform: scale(0) }
+        100%  { transform: scale(1) }
+       }
+
+
+       /* Custom Design */
+       .text-content {
+        font-size: 1.25rem;
+       }
+
+       .text-heading {
+        font-weight: normal;
+       }
+
+       .font-intro {
+        font-family: 'LAB디지털';
+        text-align: center;
+        color: white;
+        opacity: 0.6;
+        transition: all 1.0s;
+       }
+
+      .font-title {
+        font-family: 'RixNeonSign';
+      }
+
+      .fong-normal {
+        font-family: 'Cafe24SsurroundAir';
+      }
+
+      .bg-color-dark {
+        background-color: #000520;
+      }
+
+      .font-color-highlight1 {
+        color:  #FF008D;
+      }
+
+      .font-color-highlight2 {
+        color: #7de8ff;
+      }
+
+      .font-color-sub {
+        color:  #bc3908;
+      }
+
+      .font-color-normal {
+        color:  #ffffff;
+      }
+
+      .intro {
+        position: absolute;
+        top: 57%;
+        text-align: center;
+      }
+
+      .outter {
+         width: 100%;
+         text-align: center;
+       }
+
+      .inner {
+        display: inline-block;
+       }
+
+       .margin-top-bottom-20 {
+        margin-bottom: 20px;
+        margin-top: 20px;
+       }
+
+       .image-border {
+        border: 10px solid #fff;
+       }
+
+       #backtotop:hover {
+        color: white;
+       }
+
+      .wrapper {
+        width: 100%;
+        padding: 0 1rem;
+        text-align: center;
+      }
+      .polaroid {
+        background: #edebe3;
+        padding: 1rem;
+        box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+        
+      }
+      .polaroid > img{
+        max-width: 100%;
+        max-height: auto;
+      }
+      .caption {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-top: 10px;
+      }
+      .item {
+        width: 20%;
+        display: inline-block;
+        margin-top: 2rem;
+        filter: grayscale(100%);
+      }
+      .item .polaroid:before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        transition: all 0.35s;
+      }
+      .item:nth-of-type(4n+1) {
+        transform: scale(0.8, 0.8) rotate(5deg);
+        transition: all 0.35s;
+      }
+      .item:nth-of-type(4n+1) .polaroid:before {
+        transform: rotate(6deg);
+        height: 20%;
+        width: 47%;
+        bottom: 30px;
+        right: 12px;
+        box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.4);
+      }
+      .item:nth-of-type(4n+2) {
+        transform: scale(0.8, 0.8) rotate(-5deg);
+        transition: all 0.35s;
+      }
+      .item:nth-of-type(4n+2) .polaroid:before {
+        transform: rotate(-6deg);
+        height: 20%;
+        width: 47%;
+        bottom: 30px;
+        left: 12px;
+        box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.4);
+      }
+      .item:nth-of-type(4n+4) {
+        transform: scale(0.8, 0.8) rotate(3deg);
+        transition: all 0.35s;
+      }
+      .item:nth-of-type(4n+4) .polaroid:before {
+        transform: rotate(4deg);
+        height: 20%;
+        width: 47%;
+        bottom: 30px;
+        right: 12px;
+        box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.3);
+      }
+      .item:nth-of-type(4n+3) {
+        transform: scale(0.8, 0.8) rotate(-3deg);
+        transition: all 0.35s;
+      }
+      .item:nth-of-type(4n+3) .polaroid:before {
+        transform: rotate(-4deg);
+        height: 20%;
+        width: 47%;
+        bottom: 30px;
+        left: 12px;
+        box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.3);
+      }
+      .item:hover {
+        filter: none;
+        transform: scale(1, 1) rotate(0deg) !important;
+        transition: all 0.35s;
+      }
+      .item:hover .polaroid:before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        transform: rotate(0deg);
+        height: 90%;
+        width: 90%;
+        bottom: 0%;
+        right: 5%;
+        box-shadow: 0 1rem 3rem rgba(0,0,0,0.2);
+        transition: all 0.35s;
+      }
+
+
+      .navbar-dark {
+        font-size: 1.3rem;
+       }
+      .navbar-dark .navbar-brand {
+        color: #FFFFFF;
+        font-size: 1.3rem;
+      }
+      .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
+        color: #FFFFFF;
+      }
+      .navbar-dark .navbar-nav .nav-link {
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .navbar-dark .navbar-nav .nav-link.disabled {
+        color: rgba(255, 255, 255, 0.25);
+      }
+      .navbar-dark .navbar-nav .show > .nav-link,
+      .navbar-dark .navbar-nav .nav-link.active {
+        color: #FFFFFF;
+        text-shadow:
+        -0.1rem -0.1rem 0.5rem #666,
+        0.1rem 0.1rem 0.5rem #666,
+        0 0 1rem var(--neon-text-color),
+        0 0 2rem var(--neon-text-color),
+        0 0 2.5rem var(--neon-text-color),
+        0 0 3rem var(--neon-text-color),
+        0 0 6rem var(--neon-text-color);  
+      }
+      .navbar-dark .navbar-toggler {
+        color: rgba(255, 255, 255, 0.55);
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+      .navbar-dark .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+      .navbar-dark .navbar-text {
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .navbar-dark .navbar-text a,
+      .navbar-dark .navbar-text a:hover,
+      .navbar-dark .navbar-text a:focus {
+      color: #FFFFFF;
+      }
+
+      #navbar {
+        background-color: rgba(0, 5, 32, 0);
+      }
+
+
+
+      .close {
+        font-size: 1.5rem;
+      }
+
+      .col-12 img {
+        opacity: 0.7;
+        cursor: pointer;
+        margin: 2rem;
+        width: 100%;
+      }
+
+      .col-12 img:hover {
+        opacity: 1;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+
+    </style>
+    <script type="text/javascript">
+      /* 첫 화면 로딩 */
+      $(window).on('load', function () {
+        $(".loader").delay("1000").fadeOut();
+        $(".loading-image").delay("1500").fadeOut();
+        $(".loaded-container").delay("2200").fadeIn();
+
+        /* 헤더 메시지 애니메이션  */
+        $(".font-intro").delay(3000).animate({
+          opacity: 1
+        },
+        1000,
+        function() {
+          $(this).css("opacity", "0.8");
+        });
+      });
+
+      /* 부대 혜택 애니메이션 */
+      var a = true;
+      $(window).scroll(function() {
+         var hT = $('#부대혜택').offset().top,
+             hH = $('#부대혜택').outerHeight(),
+             wH = $(window).height(),
+             wS = $(this).scrollTop();
+
+             if(a == true) {
+               if (wS > (hT+hH-wH+300)){
+                   a = false;
+                  $(".div-background-mono").animate({
+                    opacity: 1
+                  },
+                  700,
+                  function() {
+                    $(this).css("animation", "scale1 1s ease forwards");
+                  });
+               }
+             }
+      });
+
+      /* Clipboard Copy */
+      function copyToClipboard(val) {
+        const t = document.createElement("textarea");
+        document.body.appendChild(t);
+        t.value = val;
+        t.select();
+        document.execCommand('copy');
+        document.body.removeChild(t);
+      }
+      function copy(val) {
+        copyToClipboard("/귓 " + val + "@톤베리 안녕하세요? 부대 가입 문의드립니다.");
+      }
+      /* Clipboard Copy */
+
+
+    </script>
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+    <link href="features.css" rel="stylesheet">
+    <link href="fire.css" rel="stylesheet">
+  </head>
+  <body class="bg-color-dark" data-bs-spy="scroll" data-bs-target="#navbar" tabindex="0">
+    <div class="loading-image-cover"></div>
+    <div class="loader">
+      <div class="loading-image fire">
+        <svg version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+         <path fill="#fff" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+          c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+              <animateTransform 
+                 attributeName="transform" 
+                 attributeType="XML" 
+                 type="rotate"
+                 dur="2s" 
+                 from="0 50 50"
+                 to="360 50 50" 
+                 repeatCount="indefinite" />
+          </path>
+         <path fill="#fff" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+          c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+              <animateTransform 
+                 attributeName="transform" 
+                 attributeType="XML" 
+                 type="rotate"
+                 dur="1s" 
+                 from="0 50 50"
+                 to="-360 50 50" 
+                 repeatCount="indefinite" />
+          </path>
+         <path fill="#fff" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+          L82,35.7z">
+              <animateTransform 
+                 attributeName="transform" 
+                 attributeType="XML" 
+                 type="rotate"
+                 dur="2s" 
+                 from="0 50 50"
+                 to="360 50 50" 
+                 repeatCount="indefinite" />
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="loaded-container fong-normal">
+      <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top font-title" id="navbar">
+          <div class="container-fluid">
+            <a class="navbar-brand font-color-highlight" style="color:#25C9EE;" href="#">&nbsp;<i class="bi bi-disc"></i>&nbsp;</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav navbar-nav-scroll me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#부대혜택"><i class="bi bi-gift"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#부대소개"><i class="bi bi-shop"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#스크린샷"><i class="bi bi-camera"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#모집대상"><i class="bi bi-emoji-wink"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#가입문의"><i class="bi bi-send"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <!-- Logo Animation -->
+        <div class="container outter" style="height: 760px; width: 100%;">
+          <div class="container" id="logo" style="width: 100%;">
+            <div>
+            <div class="sub-title open">OPEN</div>
+            <div class="neon" style="width: 100%;">청춘예찬</div>
+            <div class="flux" style="width: 100%;"><<열  화>></div>
+            </div>
+          </div>
+
+          <!-- Logo Animation -->
+          <div class="container outter intro">
+            <div class="inner">
+              <h1 class="font-intro"><i class="bi bi-disc"></i> 부 대 원 구 함 <i class="bi bi-disc"></i></h1>
+            </div>
+          </div>
+        </div>
+
+        <!-- 부대혜택 -->
+        <div class="container px-4 py-5" id="custom-cards" style="margin-top:100px;">
+          <h2 class="pb-2 text-heading font-title neon-title1" id="부대혜택"><i class="bi bi-gift"></i>&nbsp;가입 혜택</h2>
+          <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+            <div class="col">
+              <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg benifit-images div-background-mono hover-highlight" style="background-image: url('./images/대형하우징.png');">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 hover-highlight">
+                  <ul class="d-flex list-unstyled mt-auto">
+                    <li class="me-auto">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-bank2" viewBox="0 0 16 16">
+                        <path class="myPath" d="M8.277.084a.5.5 0 0 0-.554 0l-7.5 5A.5.5 0 0 0 .5 6h1.875v7H1.5a.5.5 0 0 0 0 1h13a.5.5 0 1 0 0-1h-.875V6H15.5a.5.5 0 0 0 .277-.916l-7.5-5zM12.375 6v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zM8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM.5 15a.5.5 0 0 0 0 1h15a.5.5 0 1 0 0-1H.5z"/>
+                      </svg>
+                    </li>
+                    <li class="d-flex align-items-center me-3">
+                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                      <small> </small>
+                    </li>
+                    <li class="d-flex align-items-center">
+                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+                      <small> </small>
+                    </li>
+                  </ul>
+                  <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">대형 하우징</h2>
+                  <p>시로가네 13구 7번지 대형 하우징 보유<br>각종 제작 시설 사용 가능</p>
+                  <ul class="d-flex list-unstyled mt-auto">
+                    <li class="me-auto">
+                    </li>
+                    <li class="d-flex align-items-center me-3">
+                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                      <small> </small>
+                    </li>
+                    <li class="d-flex align-items-center">
+                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+                      <small> </small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg benifit-images div-background-mono" style="background-image: url('./images/부대버프.png');">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                  <ul class="d-flex list-unstyled mt-auto">
+                    <li class="me-auto">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-alarm-fill" viewBox="0 0 16 16">
+                        <path class="myPath" d="M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H9v1.07a7.001 7.001 0 0 1 3.274 12.474l.601.602a.5.5 0 0 1-.707.708l-.746-.746A6.97 6.97 0 0 1 8 16a6.97 6.97 0 0 1-3.422-.892l-.746.746a.5.5 0 0 1-.707-.708l.602-.602A7.001 7.001 0 0 1 7 2.07V1h-.5A.5.5 0 0 1 6 .5zm2.5 5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.035 8.035 0 0 0 .86 5.387zM11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.035 8.035 0 0 0-3.527-3.527z"/>
+                      </svg>
+                    </li>
+                    <li class="d-flex align-items-center me-3">
+                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                      <small> </small>
+                    </li>
+                    <li class="d-flex align-items-center">
+                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+                      <small> </small>
+                    </li>
+                  </ul>
+                  <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">24HR 부대버프</h2>
+                  <p>부대 랭크 30<br>경험치 향상&식사시간 연장 상시 유지</p>
+                  <ul class="d-flex list-unstyled mt-auto">
+                    <li class="me-auto">
+                    </li>
+                    <li class="d-flex align-items-center me-3">
+                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                      <small> </small>
+                    </li>
+                    <li class="d-flex align-items-center">
+                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+                      <small> </small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg benifit-images div-background-mono" style="background-image: url('./images/개인실지원.png');">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                  <ul class="d-flex list-unstyled mt-auto">
+                    <li class="me-auto">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16">
+                        <path class="myPath" d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+                      </svg>
+                    </li>
+                    <li class="d-flex align-items-center me-3">
+                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                      <small> </small>
+                    </li>
+                    <li class="d-flex align-items-center">
+                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+                      <small> </small>
+                    </li>
+                  </ul>
+                  <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">개인실 증축 지원</h2>
+                  <p>부대 하우스 개인실 증축 비용 지원<br>(희망시 말씀 해주세요.)</p>
+                  <ul class="d-flex list-unstyled mt-auto">
+                    <li class="me-auto">
+                    </li>
+                    <li class="d-flex align-items-center me-3">
+                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                      <small> </small>
+                    </li>
+                    <li class="d-flex align-items-center">
+                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+                      <small> </small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- 부대 혜택-->
+
+
+        <!-- 부대소개 & 모집 대상 -->
+        <div class="container">
+          <hr class="featurette-divider" style="color: #fff;">
+          <div class="row featurette" id="부대소개">
+            <div class="col-md-7">
+              <h2 class="pb-2 text-heading font-title neon-title2"><i class="bi bi-shop"></i>&nbsp;청춘예찬《열화》 소개</h2>
+              <p class="text-white text-content">
+                <i class="bi bi-hash"></i> <b class="font-color-highlight2">톤베리서버</b>에서 지인들과 오순도순 게임하는 화목한 분위기의 <b class="font-color-highlight2">《열화》</b> 부대입니다.<br>
+                <i class="bi bi-hash"></i> <b class="font-color-highlight2">초행 던전, 극만신, 레이드, 영식</b> 부담없이 부대원들이랑 같이 가요!<br>
+                <i class="bi bi-hash"></i> 채집/제작, 보물지도, 고대무기, 하우징 등 다양한 게임 내 <b class="font-color-highlight2">컨텐츠를 함께 즐겨요.</b><br>
+                <i class="bi bi-hash"></i> 게임 내 컨텐츠 관련 질문에 답해줄 <b class="font-color-highlight2">멘토</b>님들 상시 대기중이에요.<br>
+                <i class="bi bi-hash"></i> <b class="font-color-highlight2">성별 및 연령 제한 없어요.</b> 현재 부대원 연령 10~30대로 다양해요.<br>
+                <i class="bi bi-hash"></i> 필수 참여 아니지만 부대 <b style="color:#8E7CC3;"><i class="bi bi-discord"></i>디스코드</b> 활성화 되어있어요.<br>
+                <i class="bi bi-hash"></i> <b class="font-color-highlight2">"현생을 중요시!"</b> 학업, 군대 등 개인 사정으로 인한 장기 미접속시 말씀 해주세요.<br>
+                <i class="bi bi-hash"></i> 게임 업데이트 일정에 맞추어 가끔 소소한 <b class="font-color-highlight2">부대 이벤트</b>도 있어요.<br>
+              </p>
+            </div>
+            <div class="col-md-5">
+              <img src="./images/부대소개.png" width="100%" height="100%"> 
+            </div>
+          </div>
+
+          <hr class="featurette-divider" style="color: #fff;">
+
+          <!-- 스크린샷  -->
+          <h2 class="pb-2 text-heading font-title neon-title1" id="스크린샷"><i class="bi bi-camera"></i></i>&nbsp;부대원 사진</h2>
+          <div class="fotorama"
+               data-nav="thumbs">
+            <a href="1.jpg"><img src="./images/Screenshot1.png"></a>
+            <a href="2.jpg"><img src="./images/Screenshot2.png"></a>
+            <a href="3.jpg"><img src="./images/Screenshot3.png"></a>
+            <a href="4.jpg"><img src="./images/Screenshot4.png"></a>
+            <a href="5.jpg"><img src="./images/Screenshot5.png"></a>
+          </div>
+
+          <!-- 스크린샷  -->
+          <hr class="featurette-divider" style="color: #fff;">
+          <div class="row featurette" id="모집대상">
+            <div class="col-md-7 order-md-2">
+              <h2 class="text-heading font-title neon-title2"><i class="bi bi-emoji-wink"></i>&nbsp;이런분 원해요</h2>
+              <p class="text-white text-content">
+                <i class="bi bi-hash"></i> <b class="font-color-highlight2">새싹, 복귀싹, 고인물</b> 모두 환영!<br>
+                <i class="bi bi-hash"></i> 소통이 원활하고 인사를 잘 하시는 분♥<br>
+                <i class="bi bi-hash"></i> 사사게 스타 유저 X<br>
+                <i class="bi bi-hash"></i> 특정 사상 지지 or 특정 커뮤니티 유저 X<br>
+                <i class="bi bi-hash"></i> 여미새 or 남미새 X<br>
+                <i class="bi bi-hash"></i> 철새 및 부캐 X<br>
+              </p>
+              <br>
+              <h2 class="text-heading font-title neon-title1"><i class="bi bi-lightbulb"></i>&nbsp;알아두시면 좋아요</h2>
+              <p class="text-white text-content">
+                <i class="bi bi-hash"></i> 가입 후 7일간 <b style="color:#99cc33">새싹 부대원</b> 기간이 있어요.<br>
+                <i class="bi bi-hash"></i> 해당 기간 이후부터 부대 창고 사용 가능합니다.<br>
+              </p>
+            </div>
+            <div class="col-md-5 order-md-1">
+              <img src="./images/모집대상.png" width="100%" height="100%"> 
+            </div>
+          </div>
+          <!-- 부대소개 & 모집 대상  -->
+
+          <hr class="featurette-divider" style="color: #fff;">
+
+          <!-- 가입문의 -->
+          <div class="row" id="가입문의">
+            <h2 class="text-heading font-title neon-title2"><i class="bi bi-send"></i>&nbsp;가입 문의</h2>
+            <p class="text-white text-content">
+              이름 아래 <b class="font-color-highlight2">[COPY] 버튼</b> 클릭 후 파이널판타지14 채팅창에 <b class="font-color-highlight2">붙여넣기+Enter</b> 해주세요.
+              <br><i>※ 부재시 <b class="font-color-highlight1">시로가네 13구 7번지</b> 부대집으로 오셔서 가입신청 주세요!</i></p>
+          </div>
+
+          <div class="row outter">
+            <div class="row wrapper">
+              <div class="col">
+                <div class="item col-lg-3 col-sm-12">
+                  <div class="polaroid"><img src="./images/제레타.png">
+                    <div class="caption"><h3><b>제레타@톤베리</b></h3>
+                    <a class="btn btn-outline-info btn-sm" onclick="copy('제레타')" data-bs-toggle="modal" data-bs-target="#exampleModal"> <b class="text-heading font-title">COPY</b></a></div>
+                  </div>
+                </div>
+                <div class="item col-lg-3 col-sm-12">
+                  <div class="polaroid"><img src="./images/오롤라.png">
+                    <div class="caption"><h3><b>오롤라@톤베리</b></h3>
+                    <a class="btn btn-outline-info btn-sm" onclick="copy('오롤라')" data-bs-toggle="modal" data-bs-target="#exampleModal"> <b class="text-heading font-title">COPY</b></a></div>
+                  </div>
+                </div>
+                <div class="item col-lg-3 col-sm-12">
+                  <div class="polaroid"><img src="./images/사로네.png">
+                    <div class="caption"><h3><b>사로네@톤베리</b></h3>
+                    <a class="btn btn-outline-info btn-sm" onclick="copy('사로네')" data-bs-toggle="modal" data-bs-target="#exampleModal"> <b class="text-heading font-title">COPY</b></a></div>
+                  </div>
+                </div>
+                <div class="item col-lg-3 col-sm-12">
+                  <div class="polaroid"><img src="./images/혁삼.png">
+                    <div class="caption"><h3><b>혁삼@톤베리</b></h3>
+                      <a class="btn btn-outline-info btn-sm" onclick="copy('혁삼')" data-bs-toggle="modal" data-bs-target="#exampleModal"> <b class="text-heading font-title">COPY</b></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /END 가입문의 -->
+
+        </div><!-- /.container -->
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-color-dark" style="border: 1px solid #fff;">
+              <div class="modal-body" style="padding-bottom: 0px;">
+                <p class="text-white">귓속말 클립보드 복사 완료!<br> 파이널판타지14 채팅창에 붙여넣기 후 Enter 눌러주세요.</p>
+              </div>
+              <div class="modal-footer" style="border-top-color: black; padding-top: 0px;">
+                <button type="button" class="btn btn-sm btn-info button" data-bs-dismiss="modal"><b class="text-heading font-title">CLOSE</b></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- FOOTER -->
+        <footer class="container font-color-highlight1">
+          <p class="float-end">
+            <a class="font-color-highlight1" href="#" id="backtotop">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="F777" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                <path class="myPath" d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+              </svg>
+            </a>
+          </p>
+          <p class="small" style="color: white;">Made by. 민시온@톤베리</p>
+        </footer>
+      </main>
+    </div>
+    <script src="../bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
